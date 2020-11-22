@@ -33,5 +33,6 @@ HELP.md
 _build.cmd
 _version.cmd 
 _commit.cmd
+_tag.cmd
 doc
 lib
