@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>arina-q</groupId>
+	<artifactId>arina-q</artifactId>
+	<packaging>pom</packaging>
+	<version>7.0.0</version>
+	<name>arina-q</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<commons-io.version>2.6</commons-io.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<commons-pool.version>1.6</commons-pool.version>
+		<camel.version>2.24.2</camel.version>
+		<tomcat.version>8.5.35</tomcat.version>
+		<junit.version>5.6.2</junit.version>
+		<slf4j-jdk14.version>1.7.25</slf4j-jdk14.version>
+		<spring.version>5.1.8.RELEASE</spring.version>
+	</properties>
+
+	<modules>
+		<module>arina-q.core</module>
+		<module>arina-q.datasource.db.core</module>
+		<module>arina-q.datasource.db.firebird</module>
+		<module>arina-q.datasource.db.mariadb</module>
+		<module>arina-q.datasource.db.mssql</module>
+		<module>arina-q.datasource.db.mysql</module>
+		<module>arina-q.datasource.db.oracle</module>
+		<module>arina-q.datasource.db.postgresql</module>
+		<module>arina-q.tests</module>
+	</modules>
+</project>

@@ -1,0 +1,50 @@
+﻿docker rm oracle184 -f
+
+docker rm postgres95 -f
+docker rm postgres96 -f
+docker rm postgres10 -f
+docker rm postgres11 -f
+docker rm postgres12 -f
+
+docker rm mssql2017 -f
+docker rm mssql2019 -f
+
+docker rm mysql56 -f
+docker rm mysql57 -f
+docker rm mysql80 -f
+
+docker rm mariadb55 -f
+docker rm mariadb101 -f
+docker rm mariadb102 -f
+docker rm mariadb103 -f
+docker rm mariadb104 -f
+docker rm mariadb105 -f
+
+docker rm firebird30 -f
+
+docker run -d --restart always --name oracle184 -e ORACLE_PWD=Manager_2019 -p 1521:1521 oracle/database:18.4.0-xe
+
+docker run -d --restart always --name postgres95 -e POSTGRES_PASSWORD=Manager_2019 -p 5432:5432 postgres:9.5
+docker run -d --restart always --name postgres96 -e POSTGRES_PASSWORD=Manager_2019 -p 5433:5432 postgres:9.6
+docker run -d --restart always --name postgres10 -e POSTGRES_PASSWORD=Manager_2019 -p 5434:5432 postgres:10
+docker run -d --restart always --name postgres11 -e POSTGRES_PASSWORD=Manager_2019 -p 5435:5432 postgres:11
+docker run -d --restart always --name postgres12 -e POSTGRES_PASSWORD=Manager_2019 -p 5436:5432 postgres:12
+
+docker run -d --restart always --name mssql2017 -e ACCEPT_EULA=Y -e SA_PASSWORD=Manager_2019 -p 1433:1433 mcr.microsoft.com/mssql/server:2017-latest
+docker run -d --restart always --name mssql2019 -e ACCEPT_EULA=Y -e SA_PASSWORD=Manager_2019 -p 1434:1433 mcr.microsoft.com/mssql/server:2019-latest
+
+docker run -d --restart always --name mysql56 -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3306:3306 mysql:5.6
+docker run -d --restart always --name mysql57 -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3307:3306 mysql:5.7
+docker run -d --restart always --name mysql80 -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3308:3306 mysql:8.0
+
+docker run -d --restart always --name mariadb55  -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3406:3306 mariadb:5.5
+docker run -d --restart always --name mariadb101 -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3407:3306 mariadb:10.1
+docker run -d --restart always --name mariadb102 -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3408:3306 mariadb:10.2
+docker run -d --restart always --name mariadb103 -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3409:3306 mariadb:10.3
+docker run -d --restart always --name mariadb104 -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3410:3306 mariadb:10.4
+docker run -d --restart always --name mariadb105 -e MYSQL_ROOT_PASSWORD=Manager_2019 -e MYSQL_DATABASE=test -e MYSQL_USER=system -e MYSQL_PASSWORD=Manager_2019 -p 3411:3306 mariadb:10.5
+
+docker run -d --restart always --name firebird30 -e ISC_PASSWORD=Manager_2019 -e FIREBIRD_DATABASE=test -e FIREBIRD_USER=system -e FIREBIRD_PASSWORD=Manager_2019 -e EnableLegacyClientAuth=true -p 3050:3050 jacobalberty/firebird:3.0
+
+GRANT EXECUTE ON SYS.DBMS_LOCK TO SYSTEM WITH GRANT OPTION;
+GRANT EXECUTE ON SYS.DBMS_CRYPTO TO SYSTEM WITH GRANT OPTION;

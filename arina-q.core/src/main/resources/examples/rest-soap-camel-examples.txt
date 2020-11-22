@@ -1,0 +1,403 @@
+===============================================================================================================================================================
+PUT_VALUE:
+===============================================================================================================================================================
+
+PUT http://localhost:8181/arina-q/v6/TEST/put
+Content-Type: application/json
+{"SysId":"TEST","DataType":"0","DataValue":"JSON Body","MetaInfo":"JSON MetaInfo","ExpireDate":1499606089000,"schemaVersion":"6.0"}
+
+PUT http://localhost:8181/arina-q/v3/TEST/put
+Content-Type: application/json
+{"SysId":"TEST","DataType":"0","DataValue":"JSON Body","schemaVersion":"3.0"}
+
+PUT http://localhost:8181/arina-q/v6/TEST/put
+Content-Type: application/xml
+<?xml version="1.0" encoding="UTF-8"?>
+<wsq:RequestPutValue schemaVersion="6.0" xsi:schemaLocation="http://arina.q60 arina-q-6.0.xsd" xmlns:wsq="http://arina.q60" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<wsq:SysId>TEST</wsq:SysId>
+<wsq:DataType>0</wsq:DataType>
+<wsq:DataValue>XML Body</wsq:DataValue>
+<wsq:MetaInfo>XML MetaInfo</wsq:MetaInfo>
+<wsq:ExpireDate>2017-12-17T09:30:47Z</wsq:ExpireDate>
+</wsq:RequestPutValue>
+
+PUT http://localhost:8181/arina-q/v3/TEST/put
+Content-Type: application/xml
+<?xml version="1.0" encoding="UTF-8"?>
+<wsq:RequestPutValue schemaVersion="3.0" xsi:schemaLocation="http://ws.q30 wsq-3.0.xsd" xmlns:wsq="http://ws.q30" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<wsq:SysId>TEST</wsq:SysId>
+<wsq:DataType>0</wsq:DataType>
+<wsq:DataValue>XML Body</wsq:DataValue>
+</wsq:RequestPutValue>
+
+PUT http://localhost:8181/arina-q/v6/TEST/put2?SysId=TEST&DataType=0&MetaInfo=MetaInfo&ExpireDate=2017-12-17T09:30:47Z
+
+PUT http://localhost:8181/arina-q/v3/TEST/put2?SysId=TEST&DataType=0
+
+===============================================================================================================================================================
+GET_VALUE:
+===============================================================================================================================================================
+
+POST http://localhost:8181/arina-q/v6/TEST/get
+Content-Type: application/json
+{"SystemsFilter":"TEST","TypesFilter":"0","SubQ":"0","Wait":"60","schemaVersion":"6.0"}
+
+POST http://localhost:8181/arina-q/v3/TEST/get
+Content-Type: application/json
+{"SysId":"TEST","Wait":"60","schemaVersion":"3.0"}
+
+POST http://localhost:8181/arina-q/v6/TEST/get
+Content-Type: application/xml
+<?xml version="1.0" encoding="UTF-8"?>
+<wsq:RequestGetValue schemaVersion="6.0" xsi:schemaLocation="http://arina.q60 arina-q-6.0.xsd" xmlns:wsq="http://arina.q60" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<wsq:SystemsFilter>TEST</wsq:SystemsFilter>
+<wsq:TypesFilter>0</wsq:TypesFilter>
+<wsq:SubQ>0</wsq:SubQ>
+<wsq:Wait>60</wsq:Wait>
+</wsq:RequestGetValue>
+
+POST http://localhost:8181/arina-q/v3/TEST/get
+Content-Type: application/xml
+<?xml version="1.0" encoding="UTF-8"?>
+<wsq:RequestGetValue schemaVersion="3.0" xsi:schemaLocation="http://ws.q30 wsq-3.0.xsd" xmlns:wsq="http://ws.q30" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<wsq:SysId>TEST</wsq:SysId>
+<wsq:Wait>10</wsq:Wait>
+</wsq:RequestGetValue>
+
+GET http://localhost:8181/arina-q/v6/TEST/get2?SystemsFilter=TEST&TypesFilter=0&SubQ=0&Wait=60
+Content-Type: application/xml | application/json
+
+GET http://localhost:8181/arina-q/v3/TEST/get2?SysId=TEST&Wait=60
+Content-Type: application/xml | application/json
+
+===============================================================================================================================================================
+COMMIT_PROCESSING:
+===============================================================================================================================================================
+
+POST http://localhost:8181/arina-q/v6/TEST/commit
+Content-Type: application/json
+{"Id":"7","SysId":"TEST","schemaVersion":"6.0"}
+
+POST http://localhost:8181/arina-q/v3/TEST/commit
+Content-Type: application/json
+{"Id":"7","SysId":"TEST","schemaVersion":"3.0"}
+
+POST http://localhost:8181/arina-q/v6/TEST/commit
+Content-Type: application/xml
+<?xml version="1.0" encoding="UTF-8"?>
+<wsq:RequestCommitProcessing schemaVersion="6.0" xsi:schemaLocation="http://arina.q60 arina-q-6.0.xsd" xmlns:wsq="http://arina.q60" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<wsq:Id>10</wsq:Id>
+<wsq:SysId>TEST</wsq:SysId>
+</wsq:RequestCommitProcessing>
+
+POST http://localhost:8181/arina-q/v3/TEST/commit
+Content-Type: application/xml
+<?xml version="1.0" encoding="UTF-8"?>
+<wsq:RequestCommitProcessing schemaVersion="3.0" xsi:schemaLocation="http://ws.q30 wsq-3.0.xsd" xmlns:wsq="http://ws.q30" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<wsq:Id>10</wsq:Id>
+<wsq:SysId>TEST</wsq:SysId>
+</wsq:RequestCommitProcessing>
+
+POST http://localhost:8181/arina-q/v6/TEST/commit2?Id=12&SysId=TEST
+
+POST http://localhost:8181/arina-q/v3/TEST/commit2?Id=12&SysId=TEST
+
+===============================================================================================================================================================
+ROLLBACK_PROCESSING:
+===============================================================================================================================================================
+
+POST http://localhost:8181/arina-q/v6/TEST/rollback
+Content-Type: application/json
+{"Id":"7","SysId":"TEST","ErrorInfo":"JSON Error Info","ErrorCode":"100","schemaVersion":"6.0"}
+
+POST http://localhost:8181/arina-q/v3/TEST/rollback
+Content-Type: application/json
+{"Id":"7","SysId":"TEST","ErrorInfo":"JSON Error Info","ErrorCode":"100","schemaVersion":"3.0"}
+
+POST http://localhost:8181/arina-q/v6/TEST/rollback
+Content-Type: application/xml
+<?xml version="1.0" encoding="UTF-8"?>
+<wsq:RequestRollbackProcessing schemaVersion="6.0" xsi:schemaLocation="http://arina.q60 arina-q-6.0.xsd" xmlns:wsq="http://arina.q60" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<wsq:Id>14</wsq:Id>
+<wsq:SysId>TEST</wsq:SysId>
+<wsq:ErrorInfo>XML Error Info</wsq:ErrorInfo>
+<wsq:ErrorCode>100</wsq:ErrorCode>
+</wsq:RequestRollbackProcessing>
+
+POST http://localhost:8181/arina-q/v3/TEST/rollback
+Content-Type: application/xml
+<?xml version="1.0" encoding="UTF-8"?>
+<wsq:RequestRollbackProcessing schemaVersion="3.0" xsi:schemaLocation="http://ws.q30 wsq-3.0.xsd" xmlns:wsq="http://ws.q30" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<wsq:Id>14</wsq:Id>
+<wsq:SysId>TEST</wsq:SysId>
+<wsq:ErrorInfo>XML Error Info</wsq:ErrorInfo>
+<wsq:ErrorCode>100</wsq:ErrorCode>
+</wsq:RequestRollbackProcessing>
+
+POST http://localhost:8181/arina-q/v6/TEST/rollback2?Id=12&SysId=TEST&ErrorInfo=XML Error Info&ErrorCode=100
+
+POST http://localhost:8181/arina-q/v3/TEST/rollback2?Id=12&SysId=TEST&ErrorInfo=XML Error Info&ErrorCode=100
+
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+
+	<dataFormats>
+	    <jaxb id="wsq-v3" contextPath="q30.ws"/>
+	    <jaxb id="arina-q-v6" contextPath="q60.arina"/>
+	</dataFormats>
+
+        <restConfiguration component="jetty" port="8181"/>
+        <rest path="/arina-q">
+<!-- PUT -->
+            <put uri="/v6/{qName}/put" type="q60.arina.RequestPutValue" bindingMode="json_xml">
+                 <param name="body" type="body"/>
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=putOut(${header.qName}, ${body.getSysId()}, ${body.getDataType()}, ${body.getDataValue()}, ${body.getMetaInfo()}, ${body.getExpireDate()}, ${body.getReplaceId()})"/>
+            </put>
+            <put uri="/v3/{qName}/put" type="q30.ws.RequestPutValue" bindingMode="json_xml">
+                 <param name="body" type="body"/>
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=putOut(${header.qName}, ${body.getSysId()}, ${body.getDataType()}, ${body.getDataValue()}, null, null, null)"/>
+            </put>
+            <put uri="/v6/{qName}/put2" bindingMode="off">
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=putOut(${header.qName}, ${header.sysId}, ${header.dataType}, ${body}, ${header.metaInfo}, ${header.expireDate}, ${header.replaceId})"/>
+            </put>
+            <put uri="/v3/{qName}/put2" bindingMode="off">
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=putOut(${header.qName}, ${header.sysId}, ${header.dataType}, ${body}, null, null, null)"/>
+            </put>
+<!-- COMMIT -->
+            <post uri="/v6/{qName}/commit" type="q60.arina.RequestCommitProcessing" bindingMode="json_xml">
+                 <param name="body" type="body"/>
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=commitIn(${header.qName}, ${body.getId()}, ${body.getRecordDate()}, ${body.getErrorInfo()}, null)"/>
+            </post>
+            <post uri="/v3/{qName}/commit" type="q30.ws.RequestCommitProcessing" bindingMode="json_xml">
+                 <param name="body" type="body"/>
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=commitIn(${header.qName}, ${body.getId()}, null, ${body.getErrorInfo()}, null)"/>
+            </post>
+            <post uri="/v6/{qName}/commit2">
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=commitIn(${header.qName}, ${header.Id}, ${header.recordDate}, ${header.errorInfo}, null)"/>
+            </post>
+            <post uri="/v3/{qName}/commit2">
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=commitIn(${header.qName}, ${header.Id}, null, ${header.errorInfo}, null)"/>
+            </post>
+<!-- ROLLBACK -->
+            <post uri="/v6/{qName}/rollback" type="q60.arina.RequestRollbackProcessing" bindingMode="json_xml">
+                 <param name="body" type="body"/>
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=rollbackIn(${header.qName}, ${body.getId()}, ${body.getErrorCode()}, ${body.getErrorInfo()}, null)"/>
+            </post>
+            <post uri="/v3/{qName}/rollback" type="q30.ws.RequestRollbackProcessing" bindingMode="json_xml">
+                 <param name="body" type="body"/>
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=rollbackIn(${header.qName}, ${body.getId()}, ${body.getErrorCode()}, ${body.getErrorInfo()}, null)"/>
+            </post>
+            <post uri="/v6/{qName}/rollback2">
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=rollbackIn(${header.qName}, ${header.Id}, ${header.errorCode}, ${header.errorInfo}, null)"/>
+            </post>
+            <post uri="/v3/{qName}/rollback2">
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=rollbackIn(${header.qName}, ${header.Id}, ${header.errorCode}, ${header.errorInfo}, null)"/>
+            </post>
+<!-- GET -->
+            <post uri="/v6/{qName}/get" type="q60.arina.RequestGetValue" outType="q60.arina.ResponseGetValue" bindingMode="json_xml">
+                 <param name="body" type="body"/>
+                 <route>
+                      <setHeader headerName="systemsFilter"><simple>${body.getSystemsFilter()}</simple></setHeader>
+                      <setHeader headerName="typesFilter"><simple>${body.getTypesFilter()}</simple></setHeader>
+                      <setHeader headerName="subQ"><simple>${body.getSubQ()}</simple></setHeader>
+                      <setHeader headerName="wait"><simple>${body.getWait()}</simple></setHeader>
+                      <to uri="direct:arina-q-get"/>
+                      <convertBodyTo type="q60.arina.ResponseGetValue"/>
+                 </route>
+            </post>
+            <post uri="/v3/{qName}/get" type="q30.ws.RequestGetValue" outType="q30.ws.ResponseGetValue" bindingMode="json_xml">
+                 <param name="body" type="body"/>
+                 <route>
+                      <setHeader headerName="systemsFilter"><simple>${body.getSysId()}</simple></setHeader>
+                      <setHeader headerName="wait"><simple>${body.getWait()}</simple></setHeader>
+                      <to uri="direct:arina-q-get"/>
+                      <convertBodyTo type="q30.ws.ResponseGetValue"/>
+                 </route>
+            </post>
+            <get uri="/v6/{qName}/get2" outType="q60.arina.ResponseGetValue" bindingMode="json_xml">
+                 <route>
+	              <to uri="direct:arina-q-get"/>
+                      <convertBodyTo type="q60.arina.ResponseGetValue"/>
+                 </route>
+            </get>
+            <get uri="/v3/{qName}/get2" outType="q30.ws.ResponseGetValue" bindingMode="json_xml">
+                 <route>
+                      <setHeader headerName="systemsFilter"><simple>${header.sysId}</simple></setHeader>
+	              <to uri="direct:arina-q-get"/>
+                      <convertBodyTo type="q30.ws.ResponseGetValue"/>
+                 </route>
+            </get>
+        </rest>
+
+        <route autoStartup="true">
+            <from uri="direct:arina-q-get"/>
+            <choice>
+                <when>
+                    <simple>${header.wait} == null</simple>
+                    <setHeader headerName="wait"><simple>0</simple></setHeader>
+                </when>
+            </choice>
+            <loop doWhile="true">
+                 <simple>${header.wait} &gt;= 0</simple>
+                 <!--log message="qName = ${header.qName}, systemsFilter = ${header.systemsFilter}, typesFilter = ${header.typesFilter}, subQ = ${header.subQ}, wait = ${header.wait}"/-->
+                 <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=getIn(${header.qName}, ${header.systemsFilter}, ${header.typesFilter}, ${header.subQ})"/>
+                 <choice>
+                     <when>
+                         <simple>${body} == null</simple>
+                         <delay><constant>900</constant></delay>
+                         <setHeader headerName="wait"><simple>${header.wait}--</simple></setHeader>
+                     </when>
+                     <otherwise>
+                         <setHeader headerName="wait"><simple>-1</simple></setHeader>
+                     </otherwise>
+                 </choice>
+            </loop>
+        </route>
+
+        <route autoStartup="true">
+            <from uri="cxf:bean:arina-ws"/>
+            <setHeader headerName="ARINA-WS-Username"><method bean="arina.utils.Info" method="Username"/></setHeader>
+            <setHeader headerName="ARINA-WS-RemoteAddress"><method bean="arina.utils.Info" method="RemoteAddress"/></setHeader>
+            <setHeader headerName="ARINA-WS-Handler"><simple>${body[0]}</simple></setHeader>
+            <setBody><simple>${body[1]}</simple></setBody>
+            <choice>
+<!-- PUT -->
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.v3\.(.*)\.PutValue$'</simple>
+                    <unmarshal ref="wsq-v3"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.v3\.(.*)\.PutValue$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=putOut(${header.qName}, ${body.getSysId()}, ${body.getDataType()}, ${body.getDataValue()}, null, null, null)"/>
+                    <setBody><constant/></setBody>
+                </when>
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.v6\.(.*)\.PutValue$'</simple>
+                    <unmarshal ref="arina-q-v6"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.v6\.(.*)\.PutValue$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=putOut(${header.qName}, ${body.getSysId()}, ${body.getDataType()}, ${body.getDataValue()}, ${body.getMetaInfo()}, ${body.getExpireDate()}, ${body.getReplaceId()})"/>
+                    <setBody><constant/></setBody>
+                </when>
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.(.*)\.PutValue$'</simple>
+                    <unmarshal ref="wsq-v3"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.(.*)\.PutValue$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=putOut(${header.qName}, ${body.getSysId()}, ${body.getDataType()}, ${body.getDataValue()}, null, null, null)"/>
+                    <setBody><constant/></setBody>
+                </when>
+<!-- GET -->
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.v3\.(.*)\.GetValue$'</simple>
+                    <unmarshal ref="wsq-v3"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.v3\.(.*)\.GetValue$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <setHeader headerName="systemsFilter"><simple>${body.getSysId()}</simple></setHeader>
+                    <setHeader headerName="wait"><simple>${body.getWait()}</simple></setHeader>
+                    <to uri="direct:arina-q-get"/>
+                    <choice>
+                        <when>
+                            <simple>${body} != null</simple>
+                            <convertBodyTo type="q30.ws.ResponseGetValue"/>
+                            <convertBodyTo type="java.lang.String"/>
+                        </when>
+                        <otherwise>
+                            <setBody><constant/></setBody>
+                        </otherwise>
+                    </choice>
+                </when>
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.v6\.(.*)\.GetValue$'</simple>
+                    <unmarshal ref="arina-q-v6"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.v6\.(.*)\.GetValue$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <setHeader headerName="systemsFilter"><simple>${body.getSystemsFilter()}</simple></setHeader>
+                    <setHeader headerName="typesFilter"><simple>${body.getTypesFilter()}</simple></setHeader>
+                    <setHeader headerName="subQ"><simple>${body.getSubQ()}</simple></setHeader>
+                    <setHeader headerName="wait"><simple>${body.getWait()}</simple></setHeader>
+                    <to uri="direct:arina-q-get"/>
+                    <choice>
+                        <when>
+                            <simple>${body} != null</simple>
+                            <convertBodyTo type="q60.arina.ResponseGetValue"/>
+                            <convertBodyTo type="java.lang.String"/>
+                        </when>
+                        <otherwise>
+                            <setBody><constant/></setBody>
+                        </otherwise>
+                    </choice>
+                </when>
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.(.*)\.GetValue$'</simple>
+                    <unmarshal ref="wsq-v3"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.(.*)\.GetValue$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <setHeader headerName="systemsFilter"><simple>${body.getSysId()}</simple></setHeader>
+                    <setHeader headerName="wait"><simple>${body.getWait()}</simple></setHeader>
+                    <to uri="direct:arina-q-get"/>
+                    <choice>
+                        <when>
+                            <simple>${body} != null</simple>
+                            <convertBodyTo type="q30.ws.ResponseGetValue"/>
+                            <convertBodyTo type="java.lang.String"/>
+                        </when>
+                        <otherwise>
+                            <setBody><constant/></setBody>
+                        </otherwise>
+                    </choice>
+                </when>
+<!-- COMMIT -->
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.v3\.(.*)\.CommitProcessing$'</simple>
+                    <unmarshal ref="wsq-v3"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.v3\.(.*)\.CommitProcessing$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=commitIn(${header.qName}, ${body.getId()}, null, ${body.getErrorInfo()}, null)"/>
+                    <setBody><constant/></setBody>
+                </when>
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.v6\.(.*)\.CommitProcessing$'</simple>
+                    <unmarshal ref="arina-q-v6"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.v6\.(.*)\.CommitProcessing$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=commitIn(${header.qName}, ${body.getId()}, ${body.getRecordDate()}, ${body.getErrorInfo()}, null)"/>
+                    <setBody><constant/></setBody>
+                </when>
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.(.*)\.CommitProcessing$'</simple>
+                    <unmarshal ref="wsq-v3"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.(.*)\.CommitProcessing$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=commitIn(${header.qName}, ${body.getId()}, null, ${body.getErrorInfo()}, null)"/>
+                    <setBody><constant/></setBody>
+                </when>
+<!-- ROLLBACK -->
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.v3\.(.*)\.RollbackProcessing$'</simple>
+                    <unmarshal ref="wsq-v3"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.v3\.(.*)\.RollbackProcessing$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=rollbackIn(${header.qName}, ${body.getId()}, ${body.getErrorCode()}, ${body.getErrorInfo()}, null)"/>
+                    <setBody><constant/></setBody>
+                </when>
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.v6\.(.*)\.RollbackProcessing$'</simple>
+                    <unmarshal ref="arina-q-v6"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.v6\.(.*)\.RollbackProcessing$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=rollbackIn(${header.qName}, ${body.getId()}, ${body.getErrorCode()}, ${body.getErrorInfo()}, null)"/>
+                    <setBody><constant/></setBody>
+                </when>
+                <when>
+                    <simple>${header.ARINA-WS-Handler} regex '^integration\.(.*)\.RollbackProcessing$'</simple>
+                    <unmarshal ref="wsq-v3"/>
+                    <setHeader headerName="regexpexpr"><constant>^integration\.(.*)\.RollbackProcessing$</constant></setHeader>
+                    <setHeader headerName="qName"><simple>${header.ARINA-WS-Handler.replaceAll(${header.regexpexpr}, '$1')}</simple></setHeader>
+                    <toD uri="bean:dsQ.${header.qName}.LOCAL?+language:constant:method=rollbackIn(${header.qName}, ${body.getId()}, ${body.getErrorCode()}, ${body.getErrorInfo()}, null)"/>
+                    <setBody><constant/></setBody>
+                </when>
+                <otherwise>
+                    <throwException ref="invalidHandler"/>
+                </otherwise>
+            </choice>
+        </route>

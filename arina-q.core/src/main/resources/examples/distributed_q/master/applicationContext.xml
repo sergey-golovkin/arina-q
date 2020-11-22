@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:cxf="http://camel.apache.org/schema/cxf"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+                           http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+                           http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <import resource="ds-config.xml"/>
+    <import resource="beans-config.xml"/>
+    <import resource="camel-config.xml"/>
+ 
+    <cxf:cxfEndpoint id="arina-q" serviceClass="ws.server.IWebService" address="http://0.0.0.0:9191/arina-q"/>
+
+</beans>
