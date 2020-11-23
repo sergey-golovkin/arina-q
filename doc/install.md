@@ -2,7 +2,7 @@
 
 Для установки структуры в СУБД необходимо: 
 
-####1. Установить и настроить необходимую СУБД.
+###1. Установить и настроить необходимую СУБД.
 
 >Для СУБД ORACLE также требуется выполнить:
 ```
@@ -10,7 +10,7 @@ GRANT EXECUTE ON SYS.DBMS_LOCK TO SYSTEM WITH GRANT OPTION;
 GRANT EXECUTE ON SYS.DBMS_CRYPTO TO SYSTEM WITH GRANT OPTION;
 ```
 
-####2. Установить структуру с СУБД.
+###2. Установить структуру с СУБД.
 Для этого необходимо запустить менеджер очереди
 ```java
 java -cp * arina.q.datasource.Manager
@@ -36,7 +36,7 @@ Enter system password: PWD
 Всё, структура в СУБД создана.
 
 
-####3. Настройка Apache Camel
+###3. Настройка Apache Camel
 
 В конфигурационный файл вставить:
 ```xml
