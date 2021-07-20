@@ -16,9 +16,9 @@
 Я буду рад, если вам это понравится.
 
 ## Версии
-JRE: 11
+JRE: 8
 
-Apache Camel: 3.11
+Apache Camel: 2.24.2
 
 
 ### [Установка](install/README.md)
