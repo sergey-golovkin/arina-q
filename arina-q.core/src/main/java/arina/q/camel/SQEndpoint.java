@@ -10,7 +10,7 @@ package arina.q.camel;
 
 import arina.q.datasource.IQDataSource;
 import org.apache.camel.*;
-import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.support.DefaultEndpoint;
 import org.apache.commons.lang.StringUtils;
 
 public class SQEndpoint extends DefaultEndpoint

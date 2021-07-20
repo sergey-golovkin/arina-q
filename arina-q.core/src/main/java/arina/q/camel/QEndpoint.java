@@ -10,14 +10,8 @@ package arina.q.camel;
 
 import arina.q.datasource.IQDataSource;
 import org.apache.camel.*;
-import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.support.DefaultEndpoint;
 import org.apache.commons.lang.StringUtils;
-
-import javax.management.InstanceAlreadyExistsException;
-import javax.management.MBeanRegistrationException;
-import javax.management.MalformedObjectNameException;
-import javax.management.NotCompliantMBeanException;
-import java.io.UnsupportedEncodingException;
 
 public class QEndpoint extends DefaultEndpoint
 {

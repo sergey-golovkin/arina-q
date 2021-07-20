@@ -15,7 +15,7 @@ import arina.q.datasource.SQElement;
 import arina.utils.LanguageUtils;
 import arina.utils.jmx.AnnotatedJMXProxy;
 import org.apache.camel.Exchange;
-import org.apache.camel.impl.DefaultProducer;
+import org.apache.camel.support.DefaultProducer;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

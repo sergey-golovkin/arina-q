@@ -13,7 +13,7 @@ import arina.q.datasource.IQDataSource;
 import arina.q.datasource.SQElement;
 import arina.utils.jmx.AnnotatedJMXProxy;
 import org.apache.camel.*;
-import org.apache.camel.impl.DefaultConsumer;
+import org.apache.camel.support.DefaultConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.management.*;

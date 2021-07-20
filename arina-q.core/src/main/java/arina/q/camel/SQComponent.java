@@ -11,7 +11,7 @@ package arina.q.camel;
 import java.util.Map;
 
 import org.apache.camel.*;
-import org.apache.camel.impl.DefaultComponent;
+import org.apache.camel.support.DefaultComponent;
 
 public class SQComponent extends DefaultComponent
 {

@@ -16,7 +16,7 @@ import arina.q.datasource.IQDataSource;
 import arina.q.datasource.QElement;
 import arina.utils.LanguageUtils;
 import org.apache.camel.*;
-import org.apache.camel.impl.DefaultConsumer;
+import org.apache.camel.support.DefaultConsumer;
 import org.apache.commons.lang.StringUtils;
 import arina.utils.jmx.AnnotatedJMXProxy;
 import org.slf4j.Logger;

@@ -19,7 +19,7 @@ public class Manager
         {
             String driverClass = readLine("Enter driver class name (FQN): ");
             Class<?> clazz = Class.forName(driverClass);
-            IQManager qmanager = (IQManager) clazz.newInstance();
+            IQManager qmanager = (IQManager) clazz.getDeclaredConstructor().newInstance();
 
             String dbaServerName = readLine("Enter server name or ip: ");
             String dbaServerPort = readLine("Enter server port: ");
