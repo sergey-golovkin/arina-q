@@ -12,7 +12,7 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<postgresql.version>42.2.18</postgresql.version>
+		<postgresql.version>42.4.1</postgresql.version>
 	</properties>
 
 	<dependencies>
